@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:intractx22/main.dart';
 import 'package:intractx22/mainpage.dart';
 
-class AppBarWithGradient extends StatelessWidget implements PreferredSizeWidget {
+class AppBarWithGradient extends StatelessWidget
+    implements PreferredSizeWidget {
   final String title;
-  final bool showBackButton; // Add a flag to control the visibility of the back button
+  final bool
+      showBackButton; // Add a flag to control the visibility of the back button
 
   AppBarWithGradient({required this.title, this.showBackButton = false});
 
@@ -28,7 +30,8 @@ class AppBarWithGradient extends StatelessWidget implements PreferredSizeWidget 
           ? IconButton(
               icon: Icon(Icons.arrow_back, color: Colors.white),
               onPressed: () {
-                Navigator.pop(context); // Pops the current route off the navigator stack
+                Navigator.pop(
+                    context); // Pops the current route off the navigator stack
               },
             )
           : IconButton(
@@ -45,7 +48,7 @@ class AppBarWithGradient extends StatelessWidget implements PreferredSizeWidget 
                             Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                var homePage = MainHomePage();
+                                var homePage = HomePage();
                                 return homePage;
                               }),
                               (route) => false,
@@ -96,8 +99,6 @@ class AppBarWithGradient extends StatelessWidget implements PreferredSizeWidget 
       ),
     );
   }
-  
+
   ProfilePage() {}
-  
-  
 }

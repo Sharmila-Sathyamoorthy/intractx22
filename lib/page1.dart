@@ -3,9 +3,6 @@ import 'mainpage.dart';
 import 'register_page.dart'; // Import the home page from your learning app
 
 class LoginPage extends StatelessWidget {
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +32,7 @@ class LoginPage extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    'assets/puzzle_bg.png'), // Path to puzzle background
+                    'assets/puzzle_bg.jpg'), // Path to puzzle background
                 fit: BoxFit.cover,
               ),
             ),
@@ -45,7 +42,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/logo.png', // Replace with actual logo image path
+                'assets/logo.jpg', // Replace with actual logo image path
                 height: 150,
                 width: 150,
               ),
@@ -54,7 +51,6 @@ class LoginPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextField(
-                  controller: usernameController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.mail),
                     labelText: 'Username',
@@ -69,7 +65,6 @@ class LoginPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: TextField(
-                  controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.lock),
@@ -96,24 +91,13 @@ class LoginPage extends StatelessWidget {
               // Login Button
               ElevatedButton(
                 onPressed: () {
-                  // Validate fields
-                  if (usernameController.text.isNotEmpty &&
-                      passwordController.text.isNotEmpty) {
-                    // Navigate to Home Page after login
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              MainHomePage()), // Navigates to the home page
-                    );
-                  } else {
-                    // Show an error message if fields are empty
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                          content:
-                              Text('Please enter both username and password.')),
-                    );
-                  }
+                  // Navigate to Home Page after login
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            HomePage()), // Navigates to the home page
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),

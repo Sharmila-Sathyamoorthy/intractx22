@@ -6,13 +6,15 @@ class CoursesPage extends StatefulWidget {
   _CoursesPageState createState() => _CoursesPageState();
 }
 
-class _CoursesPageState extends State<CoursesPage> with TickerProviderStateMixin {
+class _CoursesPageState extends State<CoursesPage>
+    with TickerProviderStateMixin {
   int _currentLevel = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWithGradient(title: 'Courses', showBackButton: true), // Custom AppBar
+      appBar: AppBarWithGradient(
+          title: 'Courses', showBackButton: true), // Custom AppBar
       body: Stack(
         children: [
           // Background image
@@ -20,8 +22,10 @@ class _CoursesPageState extends State<CoursesPage> with TickerProviderStateMixin
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/bg.jpg'), // Add your image path here
-                  fit: BoxFit.cover, // Make sure the image covers the whole background
+                  image:
+                      AssetImage('assets/bg.jpg'), // Add your image path here
+                  fit: BoxFit
+                      .cover, // Make sure the image covers the whole background
                 ),
               ),
             ),
@@ -29,61 +33,70 @@ class _CoursesPageState extends State<CoursesPage> with TickerProviderStateMixin
           // Semi-transparent overlay to dim the background image
           Positioned.fill(
             child: Container(
-              color: Colors.black.withOpacity(0.0), // Adjust the opacity to dim the background
+              color: Colors.black
+                  .withOpacity(0.0), // Adjust the opacity to dim the background
             ),
           ),
           // Your scrollable content with a semi-transparent background
-          SingleChildScrollView( // Vertical scroll
+          SingleChildScrollView(
+            // Vertical scroll
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Container(
-                  padding: const EdgeInsets.all(16.0), // Padding inside content container
+                  padding: const EdgeInsets.all(
+                      16.0), // Padding inside content container
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 60, 58, 58).withOpacity(1.0), // Semi-transparent background for content
+                    color: Color.fromARGB(255, 60, 58, 58).withOpacity(
+                        1.0), // Semi-transparent background for content
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center, // Center vertically
-                    crossAxisAlignment: CrossAxisAlignment.center, // Center horizontally
+                    mainAxisAlignment:
+                        MainAxisAlignment.center, // Center vertically
+                    crossAxisAlignment:
+                        CrossAxisAlignment.center, // Center horizontally
                     children: [
                       SizedBox(height: 50), // Space before Start point
                       _buildStartEndPoint(isStart: true),
-                      SizedBox(height: 20), // Space between Start point and path
+                      SizedBox(
+                          height: 20), // Space between Start point and path
                       _buildVerticalPath(isCompleted: _currentLevel >= 0),
                       SizedBox(height: 30),
 
-                      // Level 1: Traffic Light
+                      // Level 1: Playground
                       _buildLevelTile(
                         context,
-                        icon: Icons.traffic,
-                        label: 'Traffic Light',
+                        icon: Icons.sports_basketball_outlined,
+                        label: 'Playground',
                         levelIndex: 0,
                       ),
                       _buildVerticalPath(isCompleted: _currentLevel > 0),
                       SizedBox(height: 30),
 
-                      // Level 2: Bus
+                      // Level 2: Classroom
                       _buildLevelTile(
                         context,
-                        icon: Icons.directions_bus,
-                        label: 'Bus',
+                        icon: Icons.school,
+                        label: 'Classroom',
                         levelIndex: 1,
                       ),
                       _buildVerticalPath(isCompleted: _currentLevel > 1),
                       SizedBox(height: 30),
 
-                      // Level 3: Classroom
+                      // Level 3: City
                       _buildLevelTile(
                         context,
-                        icon: Icons.class_,
-                        label: 'Classroom',
+                        icon: Icons.apartment,
+                        label: 'City',
                         levelIndex: 2,
                       ),
                       SizedBox(height: 30),
 
                       _buildStartEndPoint(isStart: false),
-                      SizedBox(height: 50), // Extra space at the bottom after End point
+                      SizedBox(
+                          height:
+                              50), // Extra space at the bottom after End point
                     ],
                   ),
                 ),
@@ -101,7 +114,9 @@ class _CoursesPageState extends State<CoursesPage> with TickerProviderStateMixin
       width: 10, // Thin Path width
       height: 80, // Reduced Path height
       decoration: BoxDecoration(
-        color: isCompleted ? Color.fromARGB(171, 193, 35, 241) : Colors.grey[300], // Path color (red if completed, grey otherwise)
+        color: isCompleted
+            ? Color.fromARGB(171, 193, 35, 241)
+            : Colors.grey[300], // Path color (red if completed, grey otherwise)
         borderRadius: BorderRadius.circular(5),
         boxShadow: [
           BoxShadow(
@@ -214,9 +229,11 @@ class _CoursesPageState extends State<CoursesPage> with TickerProviderStateMixin
             ],
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Center contents vertically
+            mainAxisAlignment:
+                MainAxisAlignment.center, // Center contents vertically
             children: [
-              Icon(icon, size: 36, color: isUnlocked ? Colors.grey : Colors.grey[400]),
+              Icon(icon,
+                  size: 36, color: isUnlocked ? Colors.grey : Colors.grey[400]),
               SizedBox(height: 8),
               Text(
                 label,

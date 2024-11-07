@@ -1,7 +1,7 @@
 // register_page.dart
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'child_page.dart';  // Import ChildPage
+import 'child_page.dart'; // Import ChildPage
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -12,14 +12,16 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Register",
-        style: TextStyle(color: Colors.white),
+        title: Text(
+          "Register",
+          style: TextStyle(color: Colors.white),
         ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -39,15 +41,17 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/logo.png'),  // Adjust the path to your logo
+            Image.asset('assets/logo.jpg'), // Adjust the path to your logo
             SizedBox(height: 20),
-            _buildInputField('Username', _usernameController, false, Icons.person),
+            _buildInputField(
+                'Username', _usernameController, false, Icons.person),
             SizedBox(height: 20),
             _buildInputField('Email', _emailController, false, Icons.email),
             SizedBox(height: 20),
             _buildInputField('Password', _passwordController, true, Icons.lock),
             SizedBox(height: 20),
-            _buildInputField('Confirm Password', _confirmPasswordController, true, Icons.lock),
+            _buildInputField('Confirm Password', _confirmPasswordController,
+                true, Icons.lock),
             SizedBox(height: 20),
             Container(
               width: double.infinity,
@@ -91,7 +95,8 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   // Method to build input fields with borders, padding, icons, and rounded corners
-  Widget _buildInputField(String label, TextEditingController controller, bool obscureText, IconData icon) {
+  Widget _buildInputField(String label, TextEditingController controller,
+      bool obscureText, IconData icon) {
     return TextField(
       controller: controller,
       obscureText: obscureText,

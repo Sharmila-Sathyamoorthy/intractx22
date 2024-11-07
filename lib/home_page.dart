@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
           children: [
             // Logo Section
             Image.asset(
-              'assets/logo.png',  // Make sure the logo image exists
+              'assets/logo.jpg',  // Make sure the logo image exists
               height: 150, // Increase height
               width: 150,  // Increase width
             ),
